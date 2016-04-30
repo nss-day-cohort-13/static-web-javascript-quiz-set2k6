@@ -1,18 +1,18 @@
-//the variable inputOne was created for the id= "height" for the first input tag, and the variable inputTwo was created for the id= "char" for the second input tag in my HTML. They were given the key, getElementById() in order to get the info that would be put into the by the DOM.
+// the variable inputOne was created for the id= "height" for the first input tag, and the variable inputTwo was created for the id= "char" for the second input tag in my HTML. They were given the key, getElementById() in order to get the info that would be put into the by the DOM.
 // var inputOne = document.getElementById("height");
 // var inputTwo = document.getElementById("char");
 
 
-//this for loop takes the length of inputOne (whatever the user chooses at this point) and increases it everytime it loops. An event listener was added that waits for a users mouse click.
+// this for loop takes the length of inputOne (whatever the user chooses at this point) and increases it everytime it loops. An event listener was added that waits for a users mouse click.
 // for (var i = 0; i < inputOne.length; i++) {
 // 	inputOne.item[i].addEventListener("click", handleSectionClick);
 // }
 
-//Button: for this variable labeled button, the document.getElementById was used and labeled "TreeButton" and given the addEventListener attribute for function heightButton and charButton to listen for the input event.
+// Button: for this variable labeled button, the document.getElementById was used and labeled "TreeButton" and given the addEventListener attribute for function heightButton and charButton to listen for the input event.
 // var button = document.getElementById("TreeButton").addEventListener("click", heightButton);addEventListener("click", charButton)
 // ;
 
-//this is the for loop for inputTwo (Character) and carries out the same job as the for loop for inputOne.
+// this is the for loop for inputTwo (Character) and carries out the same job as the for loop for inputOne.
 // for (var i = 0; i < inputTwo.length; i++) {
 //   inputTwo.item(i).addEventListener("click", handleSectionClick);
 // }
@@ -32,13 +32,13 @@
 // }
 
 
-//this is a function. Functions are a block of code designed to perform a particular task. This function takes the user inserted value and allows my button to work to display that user inserted value within the console. Val 1 is my made up variable.
+// this is a function. Functions are a block of code designed to perform a particular task. This function takes the user inserted value and allows my button to work to display that user inserted value within the console. Val 1 is my made up variable.
 // function heightButton() {
 // 	var val1 = inputOne.value;
 // 	console.log(val1);
 // }
 
-//Similar to the heightButton function, but for the value of the Character input. Given the made up variable val2, because it is the second value to be entered in order to build the character tree.
+// Similar to the heightButton function, but for the value of the Character input. Given the made up variable val2, because it is the second value to be entered in order to build the character tree.
 // function charButton() {
 //    var val2 = inputTwo.value;
 //    console.log(val2);
@@ -52,23 +52,26 @@ var inputFields = {
 };
 
 var treeGrower = function() {
-  inputFields.heightInput = document.getElementById("height").value;
+  inputFields.heightInput = parseInt(document.getElementById("height").value);
   inputFields.characterInput = document.getElementById("char").value;
-  treeChecker(inputFields);
+  treeChecker();
+  }
+
+
 
 
 
 var treeChecker = function () {
-    if (inputFields.heightInput == "" || inputFields.characterInput == "") {
+    if (inputFields.heightInput === "" || inputFields.characterInput === "") {
       alert ("Both fields must have a value!")
     }
       else {
-      for (j = 0; inputFields.heightInput - 1; j++) {
-        tree.unshift("");
+      for (j = 0; j < inputFields.heightInput - 1; j++) {
+        tree.unshift(" ");
       }
       tree.push(inputFields.characterInput);
       console.log(tree.join(""));
-      for (i = 0; i <input.branches-1; i++) {
+      for (i = 0; i < inputFields.heightInput - 1; i++) {
           tree.push(inputFields.characterInput);
           tree.push(inputFields.characterInput);
           tree.shift(" ");
@@ -76,14 +79,15 @@ var treeChecker = function () {
       }
       }
 }
-}
 
 
- var button = document.getElementById("treeGrower");
- button.addEventListener("click", treeGrower)
 
- inputFields.addEventListener("click", treeGrower);
- // characterInput.addEventListener("click", treeGrower);
+ var button = document.getElementById("treeGrowerBut");
+
+ button.addEventListener("click", treeGrower);
+
+ height.addEventListener("click", treeGrower);
+ char.addEventListener("click", treeGrower);
 
 // var height = document.getElementById("char");
 
