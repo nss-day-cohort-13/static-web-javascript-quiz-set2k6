@@ -11,32 +11,40 @@ var inputFields = {
 var treeGrower = function() {
   inputFields.heightInput = parseInt(document.getElementById("height").value);
   inputFields.characterInput = document.getElementById("char").value;
-  treeChecker();
+  treeChecker(inputFields);
+  tree = [];
 }
 
 // This function contains an if,else statement that says if the height and character input fields are equal (===) to a blank field or nothing ("") then it will display an alert that says the fields must have value. Else, it will begin to run the for loop. The for loop will place an empty space in the front of the first character and decrease it with every loop. While the other will increase the character and decrease the space.
-var treeChecker = function () {
+var treeChecker = function (inputFields) {
   if (inputFields.heightInput === "" || inputFields.characterInput === "") {
     alert ("Both fields must have a value!")
-}
+  }
   else {
-    for (j = 0; j < inputFields.heightInput - 1; j++) {
+    for (i = 0; i < inputFields.heightInput - 1; i++) {
       tree.unshift(" ");
-}
+    }
     tree.push(inputFields.characterInput);
     console.log(tree.join(""));
-  for (i = 0; i < inputFields.heightInput - 1; i++) {
-    tree.push(inputFields.characterInput);
-    tree.push(inputFields.characterInput);
-    tree.shift(" ");
-    console.log(tree.join(""));
+    for (k = 0; k < inputFields.heightInput - 1; k++) {
+      tree.push(inputFields.characterInput);
+      tree.push(inputFields.characterInput);
+      tree.shift(" ");
+      console.log(tree.join(""));
     }
   }
 };
+
+function enterKey (event) {
+if (event.which === 13) {
+  treeGrower(tree = [])
+  console.log(event);
+  }
+}
 
 // tree growing button
 var button = document.getElementById("treeGrowerBut");
 // event listeners for button, height and character.
 button.addEventListener("click", treeGrower);
-height.addEventListener("click", treeGrower);
-char.addEventListener("click", treeGrower);
+height.addEventListener("keypress", enterKey);
+char.addEventListener("keypress", enterKey);
