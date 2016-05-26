@@ -17,7 +17,7 @@ var treeGrower = function() {
 
 // This function contains an if,else statement that says if the height and character input fields are equal (===) to a blank field or nothing ("") then it will display an alert that says the fields must have value. Else, it will begin to run the for loop. The for loop will place an empty space in the front of the first character and decrease it with every loop. While the other will increase the character and decrease the space.
 var treeChecker = function (inputFields) {
-  if (inputFields.heightInput === "" || inputFields.characterInput === "") {
+  if (inputFields.heightInput === "" || inputFields.heightInput !== NaN || inputFields.characterInput === "") {
     alert ("Both fields must have a value!")
   }
   else {
